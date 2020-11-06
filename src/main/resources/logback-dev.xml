@@ -8,12 +8,12 @@
         </encoder>
     </appender>
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
-    <property name="LOG_PATH" value="/Users/zhaofei/pdata1/turing" />
+    <property name="LOG_PATH" value="/Users/zhaofei/pdata1/alibaba" />
     <!--系统INFO级别日志-滚动记录日志-->
     <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--如果是 true，日志被追加到文件结尾，如果是 false，清空现存文件，默认是true。-->
         <append>true</append>
-        <filter class="com.starp.turing.common.config.CustomLogFilter"></filter>
+        <filter class="com.cloud.alibaba.common.config.CustomLogFilter"></filter>
         <!--级别过滤器（LevelFilter）,此处只打INFO级别的日志-->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>
