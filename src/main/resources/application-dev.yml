@@ -2,6 +2,48 @@ server:
   port: 8092
 
 spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: true
+    properties:
+      hibernate:
+        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+        enable_lazy_load_no_trans: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/alibaba?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong&autoReconnect=true
+    username: root
+    password: 12354
+    connectionPropertiesd: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    druid:
+      initialSize: 10
+      maxActive: 80
+      min-idle: 10
+      maxWait: 60000
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 100
+      testOnBorrow: false
+      testOnReturn: false
+      testWhileIdle: true
+      #      keepAlive: true
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      filter: stat
+      web-stat-filter:
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+        session-stat-max-count: 1000
+        profile-enable: true
+        enabled: true
+      stat-view-servlet:
+        url-pattern: /druid/*
+        login-username: admin
+        login-password: admin
   redis:
     host: 127.0.0.1
     port: 6379

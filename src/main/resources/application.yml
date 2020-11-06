@@ -4,6 +4,10 @@ spring:
   profiles:
     active: dev
 
+
+logging:
+  config: classpath:logback-${spring.profiles.active}.xml
+
 management:
   endpoints:
     web:
