@@ -1,0 +1,25 @@
+server:
+  port: 8092
+
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 1000
+
+  session:
+    store-type: redis
+    timeout: 600s
+    flush-mode: on-save
+    namespace: spring:session
+
+thymeleaf:
+  cache: false
+  prefix: classpath:/true/templates
+  suffix: .html
+  encoding: UTF-8
+  content-type: text/html
+  mode: HTML5
+
+
+
