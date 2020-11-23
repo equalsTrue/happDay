@@ -1,0 +1,34 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="false">
+    <!-- 当内存缓存中对象数量超过maxElementsInMemory时,将缓存对象写到磁盘缓存中(需对象实现序列化接口), -->
+    <!-- diskStore path用来配置磁盘缓存使用的物理路径,Ehcache磁盘缓存使用的文件后缀名是*.data和*.index -->
+    <diskStore path = "Java.io.tmpdir"/>
+    <defaultCache
+    eternal="true"
+    maxElementsInMemory="900"
+    overflowToDisk="false"
+    diskPersistent="false"
+    timeToIdleSeconds="0"
+    timeToLiveSeconds="60"
+    memoryStoreEvictionPolicy="LRU" />
+
+    <!-- name,cache唯一标识 -->
+    <!--  eternal 缓存对象是否永久有效-->
+    <!-- maxElementsOnDisk 磁盘缓存中最大值-->
+    <!-- maxElementInMemory 内存中磁盘最大缓存个数-->
+    <!-- timeToIdSeconds缓存允许闲置时间，即若超过这个时间没有访问cache这个元素,该元素会被Cache中清除，0是无穷大 -->
+    <!-- overflowToDisk 内存不足时是否启用磁盘缓存 -->
+    <!-- timeToLiveSeconds缓存存活时间 -->
+    <!-- diskPersistent 是否持久化磁盘缓存 当这个属性的值为true时,系统在初始化时会在磁盘中查找文件名为cache名称,后缀名为index的文件-->
+    <!-- memoryStoreEvictionPolicy 内存存储跟释放策略-->
+    <cache  name="aliabaEhcache"
+            eternal="true"
+            maxElementsInMemory="200"
+            maxElementsOnDisk="500"
+            overflowToDisk="false"
+            diskPersistent="false"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="60"
+            memoryStoreEvictionPolicy="LRU" />
+</ehcache>

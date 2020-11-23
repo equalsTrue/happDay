@@ -13,7 +13,7 @@
     <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--如果是 true，日志被追加到文件结尾，如果是 false，清空现存文件，默认是true。-->
         <append>true</append>
-        <filter class="com.cloud.alibaba.common.config.CustomLogFilter"></filter>
+        <filter class="com.cloud.alibaba.config.CustomLogFilter"></filter>
         <!--级别过滤器（LevelFilter）,此处只打INFO级别的日志-->
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <level>INFO</level>

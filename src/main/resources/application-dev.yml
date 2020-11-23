@@ -1,38 +1,34 @@
-server:
-  port: 8092
-
 spring:
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5Dialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate:
       ddl-auto: update
       naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    open-in-view: true
-    properties:
-      hibernate:
-        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
-        enable_lazy_load_no_trans: true
+  #      use-new-id-generator-mappings: true
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/alibaba?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong&autoReconnect=true
-    username: root
-    password: 12354
     connectionPropertiesd: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      initialSize: 10
-      maxActive: 80
-      min-idle: 10
-      maxWait: 60000
-      poolPreparedStatements: true
-      maxPoolPreparedStatementPerConnectionSize: 100
-      testOnBorrow: false
-      testOnReturn: false
-      testWhileIdle: true
-      #      keepAlive: true
-      timeBetweenEvictionRunsMillis: 60000
-      minEvictableIdleTimeMillis: 300000
+      #    ---------------------druid-primaryDB------------------
+      primary:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/alibabadb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong&autoReconnect=true
+        username: root
+        password: 12354
+        initial-size: 10
+        max-active: 20
+        min-idle: 10
+        max-wait: 60000
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 100
+        test-on-borrow: false
+        test-on-return: false
+        test-while-idle: true
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
       filter: stat
       web-stat-filter:
         url-pattern: /*
@@ -44,24 +40,76 @@ spring:
         url-pattern: /druid/*
         login-username: admin
         login-password: admin
+  # redis 配置
   redis:
     host: 127.0.0.1
     port: 6379
-    timeout: 1000
+    #    password:
+    database: 0
+    jedis:
+      pool:
+        #最大连接数
+        max-active: 8
+        #最大空闲
+        max-idle: 8
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1ms
+        #最小空闲
+        min-idle: 0
+    #连接超时时间
+    timeout: 1000ms
+  mail:
+    host: smtp.exmail.qq.com
+    port: 465
+    username: alarm@starpavilion-digital.com
+    password: Qzh12354
+    properties:
+      mail.smtp:
+        socketFactory.class: javax.net.ssl.SSLSocketFactory
+        auth: true
+        starttls:
+          enable: true
+          required: true
+    default-encoding: UTF-8
+    default-to: develops@starpavilion-digital.com
 
-  session:
-    store-type: redis
-    timeout: 600s
-    flush-mode: on-save
-    namespace: spring:session
+server:
+  port: 8081
 
-thymeleaf:
-  cache: false
-  prefix: classpath:/true/templates
-  suffix: .html
-  encoding: UTF-8
-  content-type: text/html
-  mode: HTML5
+domain:
+  warehouse: http://localhost:8088
 
+bitly:
+  access-key: "b0bdfba56c1883251df9ac7ba2550faeae2c1844"
 
+s3:
+  accessKey: AKIAIQM4G7DE53YOMQQA
+  secretKey: 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
+  bucketName: starpavilion-resources
+  uploadPath: bitly-test/images/
 
+wechat:
+  #企业微信->我的企业->企业ID
+  corpId: wwdf72511fab333965
+  #应用管理->自建应用(应用管理系统)
+  app:
+    agentId: 1000004
+    secret: beo-Bq15WnrV6EbzGWA47SlpMICb6Yao39Ys22p_xS4
+    cn:
+      agentId: 1000005
+      secret: yY-BB5mBbQE2MriEoWUMD6abhdDiNvbxQTp52fPgNp0
+    receive:
+      token: QhceeG
+      aesKey: WeeHYnShV0dqzQsHgVfBPK89xjLJO8lFh9xSAfC5Mpb
+kanban:
+  username: cd
+  password: 6saHZDuTQGcXL0M3
+  auth-url: https://kanban.starpavilion-digital.com/api/v1/auth
+  publish-url: https://kanban.starpavilion-digital.com/api/v1/userstories?kanban-status=56&status=
+  user-story-url: https://kanban.starpavilion-digital.com/api/v1/userstories/
+
+jenkins:
+  username: apiUser
+  password: YUDj34*34#DSF
+  token: 118c5e751787859c36d1e431e17f528c37
+  domain: https://jenkins.starpavilion-digital.com
