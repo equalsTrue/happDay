@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSONObject;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.*;
 
@@ -34,36 +35,37 @@ public class ReflectTest {
         }
 
         public static void main(String[] args) throws Exception {
-//            test1();
-//            File file = new File("");
-//            FileInputStream fileInputStream = new FileInputStream(file);
-//            InputStreamReader inReader = new InputStreamReader(fileInputStream);
-//            BufferedReader brReader = new BufferedReader(inReader);
-//            brReader.readLine();
-//            OutputStream outputStream = new FileOutputStream("");
-//            outputStream = System.out;
-//            OutputStreamWriter outwriter = new OutputStreamWriter(outputStream);
-//            BufferedWriter bfwriter = new BufferedWriter(outwriter);
-//            String test = "test";
-//            bfwriter.write(test);
-//            bfwriter.flush();
-//            bfwriter.close();
-//              Food food = new Apple("Apple","1");
-//              food.printId("222");
-//              food.test();
-//              Class<?> fod= Class.forName("test.Food");
-//              Method[] methods = fod.getDeclaredMethods();
-//              Method method1 = fod.getDeclaredMethod("printId", String.class);
-//              method1.setAccessible(true);
-//              Object o = fod.newInstance();
-//              method1.invoke(o,"1");
-//            for(Method method:methods){
-//                System.out.println("Food Method status: " + method.getModifiers() + ",Food Method name:" + method.getName() + ",param count: " + method.getParameterCount());
-//                Class[] params = method.getParameterTypes();
-//                for(Class param:params){
-//                    System.out.println("Food Method name:" + method.getName() + ", param type:" + param );
-//                }
-//            }
+            test1();
+            File file = new File("");
+            FileInputStream fileInputStream = new FileInputStream(file);
+            InputStreamReader inReader = new InputStreamReader(fileInputStream);
+            BufferedReader brReader = new BufferedReader(inReader);
+            brReader.readLine();
+            OutputStream outputStream = new FileOutputStream("");
+            outputStream = System.out;
+            OutputStreamWriter outwriter = new OutputStreamWriter(outputStream);
+            BufferedWriter bfwriter = new BufferedWriter(outwriter);
+            String test = "test";
+            bfwriter.write(test);
+            bfwriter.flush();
+            bfwriter.close();
+              Food food = new Apple("Apple","1");
+              food.printId("222");
+              food.test();
+              Class<?> fod= Class.forName("test.Food");
+              Method[] methods = fod.getDeclaredMethods();
+              Method method1 = fod.getDeclaredMethod("printId", String.class);
+              method1.getModifiers();
+              method1.setAccessible(true);
+              Object o = fod.newInstance();
+              method1.invoke(o,"1");
+            for(Method method:methods){
+                System.out.println("Food Method status: " + method.getModifiers() + ",Food Method name:" + method.getName() + ",param count: " + method.getParameterCount());
+                Class[] params = method.getParameterTypes();
+                for(Class param:params){
+                    System.out.println("Food Method name:" + method.getName() + ", param type:" + param );
+                }
+            }
 
                 Class<?> child = Class.forName("test.Apple");
                 Class<?> father = child.getSuperclass();
