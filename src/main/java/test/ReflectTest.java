@@ -35,20 +35,19 @@ public class ReflectTest {
         }
 
         public static void main(String[] args) throws Exception {
-            test1();
-            File file = new File("");
-            FileInputStream fileInputStream = new FileInputStream(file);
-            InputStreamReader inReader = new InputStreamReader(fileInputStream);
-            BufferedReader brReader = new BufferedReader(inReader);
-            brReader.readLine();
-            OutputStream outputStream = new FileOutputStream("");
-            outputStream = System.out;
-            OutputStreamWriter outwriter = new OutputStreamWriter(outputStream);
-            BufferedWriter bfwriter = new BufferedWriter(outwriter);
-            String test = "test";
-            bfwriter.write(test);
-            bfwriter.flush();
-            bfwriter.close();
+              test1();
+//            File file = new File("");
+//            FileInputStream fileInputStream = new FileInputStream(file);
+//            InputStreamReader inReader = new InputStreamReader(fileInputStream);
+//            BufferedReader brReader = new BufferedReader(inReader);
+//            brReader.readLine();
+//            OutputStream outputStream = new FileOutputStream("");
+//            OutputStreamWriter outwriter = new OutputStreamWriter(outputStream);
+//            BufferedWriter bfwriter = new BufferedWriter(outwriter);
+//            String test = "test";
+//            bfwriter.write(test);
+//            bfwriter.flush();
+//            bfwriter.close();
               Food food = new Apple("Apple","1");
               food.printId("222");
               food.test();
@@ -66,7 +65,6 @@ public class ReflectTest {
                     System.out.println("Food Method name:" + method.getName() + ", param type:" + param );
                 }
             }
-
                 Class<?> child = Class.forName("test.Apple");
                 Class<?> father = child.getSuperclass();
                 Method fatherPrivateMethod = father.getDeclaredMethod("printName",String.class,int.class);

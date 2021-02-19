@@ -1,4 +1,9 @@
 spring:
+  ##去除有问题的指标，因为指标名重复产生bug
+  metrics:
+    servo:
+      enabled: false
+
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
@@ -113,3 +118,8 @@ jenkins:
   password: YUDj34*34#DSF
   token: 118c5e751787859c36d1e431e17f528c37
   domain: https://jenkins.starpavilion-digital.com
+
+
+management:
+  security:
+    enabled: false
