@@ -1,4 +1,5 @@
-package controller;
+package com.david.eureka2.springcloudeurekaclient2.controller;
+
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,6 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String home(@RequestParam(value = "name", defaultValue = "david") String name) {
-        System.out.println("test client");
-        return "hi " + name + " ,i am from port:" + port;
+        return "hello  " + name + " ,my port:" + port;
     }
 }
