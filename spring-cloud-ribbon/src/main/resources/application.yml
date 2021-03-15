@@ -10,3 +10,6 @@ server:
 spring:
   application:
     name: service-ribbon
+
+ribbon:
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule

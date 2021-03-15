@@ -10,7 +10,6 @@ import com.david.ribbon.springcloudribbon.service.HelloService;
 
 @RestController
 @RequestMapping
-@ComponentScan
 public class HelloController {
 
     @Autowired
