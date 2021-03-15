@@ -27,10 +27,6 @@ hystrix:
         thread:
           timeoutInMilliseconds: 20000
 
-
-
-
-
 spring:
   application:
     name: spring-hystrix
@@ -60,3 +56,13 @@ ribbon:
   MaxAutoRetriesNextServer: 3
   # 每个实例重试次数
   MaxAutoRetries: 2
+
+
+zuul:
+  routes:
+    api-ribbon:
+      path: /api-ribbon/**
+      serviceId: service-ribbon
+    api-feign:
+      path: /api-feign/**
+      serviceId: service-feign
