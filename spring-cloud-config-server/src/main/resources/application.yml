@@ -1,0 +1,17 @@
+server:
+  port: 8768
+
+
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      label: david-dev
+      server:
+        git:
+          uri: https://github.com/equalsTrue/SpringCloudConfig.git
+          username: m15291092760@163.com
+          password: Li691212
+          search-paths: springcloudConfig

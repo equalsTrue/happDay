@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: config-client
+
+  cloud:
+    config:
+      label: david-dev
+      name: application
+      profile: dev
+      uri: http://localhost:8768
+      username: m15291092760@163.com
+      password: Li691212
+
+
+server:
+  port: 8769
