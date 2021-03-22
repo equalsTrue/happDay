@@ -8,9 +8,9 @@ spring:
       uri: http://localhost:8768
       username: m15291092760@163.com
       password: Li691212
-      discovery:
-        enabled: true
-        service-id: config-server
+#      discovery:
+#        enabled: true
+#        service-id: config-server
 
 server:
   port: 8769

@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@EnableDiscoveryClient
 @EnableEurekaClient
+@EnableDiscoveryClient
 public class SpringCloudConfigClientApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringCloudConfigClientApplication.class, args);
     }
 
-    @Value("${spring.application.name}")
+    @Value("${spring.redis.host}")
     String name;
 
 
