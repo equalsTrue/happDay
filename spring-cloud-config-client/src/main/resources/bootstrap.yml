@@ -11,6 +11,14 @@ spring:
       discovery:
         enabled: true
         service-id: config-server
+    bus:
+      refresh:
+        enabled: true
+    rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
 
 server:
   port: 8769
@@ -19,4 +27,8 @@ server:
 #  config:
 #    enabled: false
 
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
