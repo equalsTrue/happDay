@@ -1,6 +1,6 @@
 spring:
   application:
-    name: cloud-client
+    name: config-client
 
   cloud:
     config:
@@ -11,21 +11,18 @@ spring:
       uri: http://localhost:8768
       username: m15291092760@163.com
       password: Li691212
-      discovery:
-        enabled: true
-        service-id: config-server
     bus:
-      id: ${vcap.application.name:${spring.application.name:application}}:${vcap.application.instance_index:${spring.profiles.active:${local.server.port:${server.port:0}}}}:${vcap.application.instance_id:${random.value}}
       refresh:
         enabled: true
+      id: ${spring.application.name}:${spring.cloud.config.profile}:${random.value}
     rabbitmq:
       host: localhost
       port: 5672
       username: guest
       password: guest
-
-server:
-  port: 8769
+#
+#server:
+#  port: 8769
 
 #health:
 #  config:
@@ -36,3 +33,12 @@ management:
     web:
       exposure:
         include: '*'
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
