@@ -2,15 +2,15 @@ spring:
   application:
     name: config-client
 
-  cloud:
-    config:
-      label: master
-      name: application
-      profile: dev
-      enabled: true
-      uri: http://localhost:8768
-      username: m15291092760@163.com
-      password: Li691212
+#  cloud:
+#    config:
+#      label: master
+#      name: application
+#      profile: fat
+#      enabled: true
+#      uri: http://localhost:8768
+#      username: m15291092760@163.com
+#      password: Li691212
 
 
 server:

@@ -5,6 +5,9 @@ spring:
   cloud:
     config:
       label: master
+      name: application
+      profile: fat
+      enabled: true
       uri: http://localhost:8768
       username: m15291092760@163.com
       password: Li691212
@@ -12,6 +15,7 @@ spring:
         enabled: true
         service-id: config-server
     bus:
+      id: ${vcap.application.name:${spring.application.name:application}}:${vcap.application.instance_index:${spring.profiles.active:${local.server.port:${server.port:0}}}}:${vcap.application.instance_id:${random.value}}
       refresh:
         enabled: true
     rabbitmq:

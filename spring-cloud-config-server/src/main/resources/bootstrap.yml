@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/equalsTrue/SpringCloudConfig.git
+          username: m15291092760@163.com
+          password: Li691212
+          search-paths: springcloudConfig
+          force-pull: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+
+
+management:
+#endpoint:
+  ##    health:
+  ##      show-details: always
+  ##    bus-refresh:
+  ##      enabled: true
+  ###    bus-env:
+  ###      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
