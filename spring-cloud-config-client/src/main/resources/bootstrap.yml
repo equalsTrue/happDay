@@ -21,14 +21,16 @@ spring:
       username: guest
       password: guest
 #
-#server:
-#  port: 8769
+server:
+  port: 8769
 
 #health:
 #  config:
 #    enabled: false
 
 management:
+#  security:
+#    enabled: false
   endpoints:
     web:
       exposure:

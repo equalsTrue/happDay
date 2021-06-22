@@ -11,9 +11,20 @@ public class Apple extends Food {
         super(name);
         this.name = name;
         this.id = id;
+        System.out.println("Apple public construct ----- name =" + name + "  id = " + id);
     }
 
-    public Apple(){}
+    public Apple(){
+        System.out.println("Apple constrouct without params");
+    }
+
+
+
+    private void printName(String name,int id){
+        System.out.println("Apple private printName");
+    }
+
+
 
 
     @Override

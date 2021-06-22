@@ -15,8 +15,7 @@ public class ReflectTest {
 
         public static  void test1(){
             try {
-                Test tt = new Test();
-                Class<? extends Test> tc = tt.getClass();
+                Class<? extends Test> tc = new Test().getClass();
                 Class<? extends Test> tv = Test.class;
                 Class<?> test = Class.forName("test.Test");
                 Field[] tf = test.getDeclaredFields();

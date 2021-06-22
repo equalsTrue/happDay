@@ -13,7 +13,7 @@ public class Food {
     }
 
     public Food(){
-        System.out.println("Food public constrouct");
+        System.out.println("Food public constrouct without params");
     }
 
     public Food(String name){
@@ -22,13 +22,14 @@ public class Food {
     }
 
     private void printName(String name,int id){
+        System.out.println("Food private printName");
         System.out.println("Food Name :" + name);
         System.out.println("Food Id :" + id);
 
     }
 
     public void printId(String id){
-        System.out.println("Food Id :" + id);
+        System.out.println("Food println Id :" + id);
     }
 
     public void test(){
