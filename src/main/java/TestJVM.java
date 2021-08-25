@@ -8,7 +8,7 @@ public class TestJVM {
 
 
     static {
-        num = 3;
+        num = 4;
 
     }
     private static int num = 2;
